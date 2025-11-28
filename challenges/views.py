@@ -17,6 +17,9 @@ monthly_challenges = {
     'dec': 'no leaf, near snowww' 
 }
 
+def index(request):
+    return HttpResponse('<h1>You Can See Months!</h1>')
+
 def monthly_challenge(request, month):
     try:
         return HttpResponse(f'<h1>{monthly_challenges[month]}</h1>')
