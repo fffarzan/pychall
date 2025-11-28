@@ -18,7 +18,17 @@ monthly_challenges = {
 }
 
 def index(request):
-    return HttpResponse('<h1>You Can See Months!</h1>')
+    month_list = ''
+    months = list(monthly_challenges.keys())
+
+    for m in months:
+        cap_month = m.capitalize()
+        path = reverse('month-chall', args=[m])
+        month_list += f'<li><a href="{path}">{cap_month}</a></li>'
+
+    res = f'<ul>{month_list}</ul>'
+
+    return HttpResponse(res)
 
 def monthly_challenge(request, month):
     try:
@@ -29,7 +39,7 @@ def monthly_challenge(request, month):
 def monthly_challenge_by_number(request, month):
     months = list(monthly_challenges.keys())
 
-    if month > len(month):
+    if month > len(months):
         return HttpResponseNotFound('<h1>Not supported!</h1>')
     
     target_month = months[month - 1]
