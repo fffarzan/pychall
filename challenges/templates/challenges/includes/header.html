@@ -1,6 +1,12 @@
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'challenges/header.css' %}" />
+{% endblock  %}
+
 <header>
     <nav>
-        <a href="{% url 'index' %}">challs</a>
+        <a href="{% url 'index' %}">challs ({{ active_page }})</a>
     </nav>
-    {{ active_page }}
+    
 </header>
