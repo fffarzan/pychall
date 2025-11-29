@@ -15,7 +15,7 @@ monthly_challenges = {
     'sep': 'softer sun',
     'oct': 'leaffffs',
     'nov': 'many leafss',
-    'dec': 'no leaf, near snowww' 
+    'dec': None,
 }
 
 def index(request):
