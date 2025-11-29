@@ -34,6 +34,7 @@ def index(request):
 def monthly_challenge(request, month):
     try:
         return render(request, 'challenges/challenge.html', {
+            'month': month.capitalize(),
             'text': monthly_challenges[month]
         })
     except:
